@@ -1,0 +1,86 @@
+/ Classe base Animal
+class Animal {
+    protected float tamanho;
+    protected String cor;
+
+    public void comer() {
+        System.out.println("O animal está comendo.");
+    }
+}
+
+// Classe Cavalo herdando de Animal
+class Cavalo extends Animal {
+    private String raca;
+
+    public Cavalo(String raca) {
+        this.raca = raca;
+    }
+
+    public void fugir() {
+        System.out.println("O cavalo está fugindo.");
+    }
+}
+
+// Classe Leão herdando de Animal
+class Leao extends Animal {
+    private boolean juba;
+
+    public Leao(boolean juba) {
+        this.juba = juba;
+    }
+
+    public void cacar() {
+        System.out.println("O leão está caçando.");
+    }
+}
+
+// Classe base Médico
+class Medico {
+    protected boolean trabalhaNoHospital;
+
+    public void tratarPaciente() {
+        System.out.println("O médico está tratando um paciente.");
+    }
+}
+
+// Classe Clínico Geral herdando de Médico
+class ClinicoGeral extends Medico {
+    private boolean atendeEmCasa;
+
+    public void receitar() {
+        System.out.println("O clínico geral está receitando um medicamento.");
+    }
+}
+
+// Classe Cirurgião herdando de Médico
+class Cirurgiao extends Medico {
+    @Override
+    public void tratarPaciente() {
+        System.out.println("O cirurgião está realizando um tratamento especializado.");
+    }
+
+    public void fazerIncisao() {
+        System.out.println("O cirurgião está fazendo uma incisão.");
+    }
+}
+
+// Classe principal para testes
+public class Main {
+    public static void main(String[] args) {
+        Cavalo cavalo = new Cavalo("Árabe");
+        cavalo.comer();
+        cavalo.fugir();
+
+        Leao leao = new Leao(true);
+        leao.comer();
+        leao.cacar();
+
+        ClinicoGeral clinico = new ClinicoGeral();
+        clinico.tratarPaciente();
+        clinico.receitar();
+
+        Cirurgiao cirurgiao = new Cirurgiao();
+        cirurgiao.tratarPaciente();
+        cirurgiao.fazerIncisao();
+    }
+}
